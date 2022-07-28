@@ -9,7 +9,6 @@ class Airport{
     return this._hangar;
   }
   clearForLanding(plane) {
-    debugger;
     if(this.isStormy()) {
       throw new Error('cannot land during storm');
     }

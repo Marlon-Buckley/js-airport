@@ -29,17 +29,17 @@ describe('Feature Test: ', () => {
   describe('under stormy conditions',() => {
 
     it('blocks takeoff when weather is stormy', () => {
-      // spyOn(Math,'random').and.returnValue(0);
+      spyOn(Math,'random').and.returnValue(0);
       plane.land(airport)
       spyOn(airport._weather,'isStormy').and.returnValue(true);
       expect(() => { plane.takeoff();}).toThrowError('cannot takeoff during storm');
-      // expect(airport.planes()).toContain(plane);
+      expect(airport.planes()).toContain(plane);
     });
 
     it('blocks landing when weather is stormy', () => {
       spyOn(Math,'random').and.returnValue(1);
       expect(() => { plane.land(airport); }).toThrowError('cannot land during storm');
-      // expect(airport.planes()).toEqual([]);
+      expect(airport.planes()).toEqual([]);
     });
   });
 });
